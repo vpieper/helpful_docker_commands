@@ -23,6 +23,9 @@ docker rm $(docker ps -q -f status=exited) # remove all exited containers
 # list images and containers
 docker images | grep "search_term_here"
 
+# update all images
+for image in $(sudo docker image ls | awk '{print $1}' | grep -ve "none\|REPOSITORY" | sort | uniq); do sudo docker pull $image ;done
+
 # remove image(s) (must remove associated containers first)
 docker rmi -f image_id_here # remove image(s)
 docker rmi -f $(docker images -q) # remove ALL images!!!
