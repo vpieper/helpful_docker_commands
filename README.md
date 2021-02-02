@@ -1,2 +1,2 @@
-# helpful_docker_commands.sh
+# helpful_docker_commands
 List of helpful Docker managing commands
